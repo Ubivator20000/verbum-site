@@ -1,0 +1,319 @@
+/* Сайт Verbum: тёмный, с золотом — как лаунчер. Цвета — в :root, меняются в одном месте. */
+:root {
+	--bg: #121318;
+	--panel: #1b1d24;
+	--line: #2a2d36;
+	--text: #e2e4e9;
+	--muted: #9095a0;
+	--gold: #e8c25a;
+	--gold-dark: #b8922f;
+	--radius: 10px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font: 17px/1.6 "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+}
+
+a {
+	color: var(--gold);
+}
+
+h1, h2, h3, .brand {
+	font-family: Georgia, "Times New Roman", serif;
+	font-weight: 700;
+	letter-spacing: .02em;
+}
+
+/* ─── Шапка ─── */
+
+.top {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 12px 24px;
+	background: rgba(18, 19, 24, .92);
+	backdrop-filter: blur(6px);
+	border-bottom: 1px solid var(--line);
+}
+
+.brand {
+	color: var(--gold);
+	text-decoration: none;
+	font-size: 22px;
+	letter-spacing: .12em;
+}
+
+nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px 20px;
+}
+
+nav a {
+	color: var(--text);
+	text-decoration: none;
+	opacity: .85;
+}
+
+nav a:hover {
+	opacity: 1;
+	color: var(--gold);
+}
+
+nav a.accent {
+	color: var(--gold);
+	opacity: 1;
+}
+
+/* ─── Обложка ─── */
+
+.hero {
+	min-height: 72vh;
+	display: flex;
+	align-items: flex-end;
+	padding: 48px 24px;
+	background-size: cover;
+	background-position: center 30%;
+}
+
+.hero-text {
+	max-width: 760px;
+	margin: 0 auto 0 max(0px, calc((100vw - 1100px) / 2));
+}
+
+.hero h1 {
+	margin: 0;
+	font-size: clamp(48px, 10vw, 104px);
+	line-height: 1;
+	color: var(--gold);
+	letter-spacing: .14em;
+	text-shadow: 0 4px 24px rgba(0, 0, 0, .6);
+}
+
+.lead {
+	font-size: clamp(20px, 3vw, 28px);
+	margin: 8px 0 12px;
+	font-family: Georgia, serif;
+}
+
+.buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 20px;
+}
+
+.button {
+	display: inline-block;
+	padding: 12px 24px;
+	border-radius: var(--radius);
+	background: var(--gold);
+	color: #1a1404;
+	font-weight: 700;
+	text-decoration: none;
+	transition: background .15s;
+}
+
+.button:hover {
+	background: #f2d27a;
+}
+
+.button.ghost {
+	background: transparent;
+	color: var(--gold);
+	border: 1px solid var(--gold);
+}
+
+.button.disabled {
+	background: var(--line);
+	color: var(--muted);
+	pointer-events: none;
+}
+
+/* ─── Разделы ─── */
+
+main {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0 24px;
+}
+
+.block {
+	padding: 56px 0 8px;
+	scroll-margin-top: 64px;
+}
+
+.block h2 {
+	font-size: 34px;
+	margin: 0 0 20px;
+	color: var(--gold);
+}
+
+.cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 16px;
+}
+
+.cards article {
+	background: var(--panel);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	padding: 20px 22px;
+}
+
+.cards h3 {
+	margin: 0 0 6px;
+	color: var(--gold);
+	font-size: 21px;
+}
+
+.cards p {
+	margin: 0;
+	color: var(--text);
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 12px;
+	padding-top: 40px;
+}
+
+.gallery figure {
+	margin: 0;
+}
+
+.gallery img {
+	width: 100%;
+	aspect-ratio: 16 / 7;
+	object-fit: cover;
+	border-radius: var(--radius);
+	display: block;
+}
+
+.gallery figcaption {
+	color: var(--muted);
+	font-size: 14px;
+	margin-top: 6px;
+}
+
+/* ─── Скачать ─── */
+
+.steps {
+	list-style: none;
+	counter-reset: step;
+	padding: 0;
+	margin: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 16px;
+}
+
+.steps li {
+	counter-increment: step;
+	background: var(--panel);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	padding: 20px 22px;
+}
+
+.steps h3::before {
+	content: counter(step) ". ";
+	color: var(--gold);
+}
+
+.steps h3 {
+	margin: 0 0 8px;
+}
+
+.note, .muted {
+	color: var(--muted);
+	font-size: 15px;
+}
+
+.alt {
+	margin-top: 16px;
+	background: var(--panel);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	padding: 14px 22px;
+}
+
+.alt summary {
+	cursor: pointer;
+	font-weight: 600;
+}
+
+/* ─── Новости ─── */
+
+.news article {
+	border-left: 3px solid var(--gold-dark);
+	padding: 4px 0 4px 18px;
+	margin-bottom: 28px;
+}
+
+.news h3 {
+	margin: 0 0 6px;
+	color: var(--gold);
+	font-size: 22px;
+}
+
+.news p, .news ul {
+	margin: 6px 0;
+}
+
+/* ─── Правила, донат, низ ─── */
+
+.rules li {
+	margin-bottom: 6px;
+}
+
+.donate p {
+	max-width: 720px;
+}
+
+footer {
+	margin-top: 64px;
+	padding: 24px;
+	border-top: 1px solid var(--line);
+	color: var(--muted);
+	font-size: 14px;
+	text-align: center;
+}
+
+@media (max-width: 640px) {
+	body {
+		font-size: 16px;
+	}
+
+	.top {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 10px 16px;
+	}
+
+	main, .hero {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+
+	.cards, .gallery, .steps {
+		grid-template-columns: 1fr;
+	}
+}

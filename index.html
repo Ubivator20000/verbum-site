@@ -187,15 +187,41 @@
 	window.addEventListener('scroll', mark, { passive: true });
 	mark();
 	// Кнопка адреса сервера: копирует его в буфер обмена.
+	// navigator.clipboard есть только на https — для http копируем по-старому, через скрытое поле.
+	var copyOld = function (text) {
+		var field = document.createElement('textarea');
+		field.value = text;
+		field.setAttribute('readonly', '');
+		field.style.position = 'fixed';
+		field.style.opacity = '0';
+		document.body.appendChild(field);
+		field.select();
+		var ok = false;
+		try { ok = document.execCommand('copy'); } catch (e) {}
+		document.body.removeChild(field);
+		return ok;
+	};
 	document.querySelectorAll('.copy').forEach(function (button) {
 		button.addEventListener('click', function () {
+			var text = button.dataset.copy;
 			var hint = button.querySelector('small');
-			var done = function () {
-				hint.textContent = 'скопировано!';
+			var say = function (words) {
+				hint.textContent = words;
 				setTimeout(function () { hint.textContent = 'нажми, чтобы скопировать'; }, 1600);
 			};
-			if (navigator.clipboard) {
-				navigator.clipboard.writeText(button.dataset.copy).then(done, function () {});
+			var fallback = function () {
+				if (copyOld(text)) {
+					say('скопировано!');
+				} else {
+					// Совсем не вышло — выделяем адрес, чтобы скопировать руками (Ctrl+C).
+					window.getSelection().selectAllChildren(button.querySelector('span'));
+					say('нажми Ctrl+C');
+				}
+			};
+			if (navigator.clipboard && window.isSecureContext) {
+				navigator.clipboard.writeText(text).then(function () { say('скопировано!'); }, fallback);
+			} else {
+				fallback();
 			}
 		});
 	});

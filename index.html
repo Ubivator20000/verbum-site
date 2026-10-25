@@ -5,105 +5,154 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Verbum — магия, которую придумываешь ты</title>
 	<meta name="description" content="Verbum — сервер Minecraft 1.20.1 с модом, где заклинания создаются по твоим словам.">
+	<link rel="icon" href="favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" sizes="256x256" href="img/icon-256.png">
+	<link rel="apple-touch-icon" href="img/icon-256.png">
+	<meta property="og:title" content="Verbum — магия, которую придумываешь ты">
+	<meta property="og:description" content="Сервер Minecraft 1.20.1: опиши заклинание словами — и бог создаст его для тебя.">
+	<meta property="og:image" content="img/hero-small.jpg">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!--
+	КАК ПРАВИТЬ ТЕКСТЫ — подробно в README.md (раздел «Тексты на сайте»). Коротко:
+	тексты лежат прямо здесь, между тегами: <h3>Заголовок</h3>, <p>Абзац</p>. Меняешь слова — теги не трогаешь.
+	Подсветить слово золотом: <b>слово</b>. Новая строка внутри абзаца: <br>.
+-->
+
 <header class="top">
 	<a class="brand" href="#">VERBUM</a>
 	<nav>
-		<a href="#about">Главная</a>
+		<a href="#">Главная</a>
 		<a href="#download">Скачать</a>
 		<a href="#news">Новости</a>
 		<a href="#rules">Правила</a>
-		<a href="#donate" class="accent">Донат</a>
+		<a href="#donate" class="gold">Донат</a>
 	</nav>
 </header>
 
-<section class="hero" style="background-image: linear-gradient(180deg, rgba(14,14,18,.35) 0%, rgba(14,14,18,.92) 100%), url('img/hero.jpg')">
+<!-- ═══ ОБЛОЖКА: картинка — img/hero.jpg (для телефонов — img/hero-small.jpg) ═══ -->
+<section class="hero">
 	<div class="hero-text">
-		<h1>VERBUM</h1>
-		<p class="lead">Магия, которую придумываешь ты.</p>
-		<p>Сервер Minecraft 1.20.1. Опиши заклинание словами — и бог создаст его для тебя. Такого больше ни у кого не будет.</p>
+		<h1 class="hero-title">Магия, которую придумываешь&nbsp;ты.</h1>
+		<!-- ТЕКСТ ОБЛОЖКИ: каждая строка — отдельный <span>; лишнюю — удали целиком вместе с тегами -->
+		<p class="hero-lead">
+			<span>Сервер Minecraft 1.20.1.</span>
+			<span>Опиши заклинание словами —</span>
+			<span>и бог создаст его для тебя.</span>
+			<span>Такого больше ни у кого не будет.</span>
+		</p>
 		<div class="buttons">
-			<a class="button" href="#download">Скачать лаунчер</a>
-			<a class="button ghost" href="#news">Новости</a>
+			<a class="button" href="#download"><span class="icon-down" aria-hidden="true"></span>Скачать</a>
+			<a class="button dark" href="#news">Новости</a>
 		</div>
 	</div>
 </section>
 
 <main>
 
+	<!-- ═══ ЧТО ТЕБЯ ЖДЁТ: шесть плашек. Цвет рамки — класс glow-…: purple, fire, gold, red, green, amber ═══ -->
 	<section id="about" class="block">
-		<h2>Что тебя ждёт</h2>
+		<h2 class="ornament">Что тебя ждёт</h2>
 		<div class="cards">
-			<article>
+			<article class="glow-purple">
 				<h3>Заклинания из слов</h3>
-				<p>Никаких списков готовых заклинаний. Ты говоришь богу, чего хочешь, — он создаёт заклинание, его вид и цену. Каждое — единственное в мире.</p>
+				<p>Никаких списков готовых заклинаний.</p>
+				<p>Ты говоришь богу, чего хочешь — он создаёт заклинание, его вид и цену.</p>
+				<p><b>Каждое — единственное в мире.</b></p>
 			</article>
-			<article>
+			<article class="glow-fire">
 				<h3>Два бога</h3>
-				<p>Яндо — разрушение, культ и Золотой город. Аргон — знание, шрамы и тьма. У каждого свой нрав, и каждый одаривает по-своему.</p>
+				<p><b>Яндо</b> — разрушение, культ и Золотой город.</p>
+				<p><b>Аргон</b> — знание, шрамы и тьма.</p>
+				<p>У каждого свой нрав, и каждый одаривает по-своему.</p>
 			</article>
-			<article>
+			<article class="glow-gold">
 				<h3>Золотой город</h3>
-				<p>Сердце острова и убежище. Здесь торгуют, берут поручения и слушают слухи — а жители помнят, что с ними говорили.</p>
+				<p>Сердце острова и убежище.</p>
+				<p>Здесь торгуют, берут поручения и слушают слухи — а жители <b>помнят</b>, что с ними говорили.</p>
 			</article>
-			<article>
+			<article class="glow-red">
 				<h3>Заражённый запад</h3>
-				<p>Когда-то там была столица магов. Теперь — земли, в которые лучше не ходить одному. Чем дальше, тем больше там того, ради чего стоит рискнуть.</p>
+				<p>Когда-то там была столица магов.</p>
+				<p>Теперь — земли, в которые лучше не ходить одному.</p>
+				<p>Чем дальше, тем больше там того, <b>ради чего стоит рискнуть</b>.</p>
 			</article>
-			<article>
+			<article class="glow-green">
 				<h3>Кланы и земли</h3>
-				<p>Основай клан, займи землю, поставь свои законы. Защищай её — или забирай чужую.</p>
+				<p>Основай клан, займи землю, поставь свои законы.</p>
+				<p><b>Защищай её</b> — или забирай чужую.</p>
 			</article>
-			<article>
+			<article class="glow-amber">
 				<h3>Боссы и живой металл</h3>
-				<p>В логовах ждут боссы — и со временем каждый становится другим. А из их добычи куётся оружие, которое помнит своего врага.</p>
+				<p>В логовах ждут боссы — и со временем каждый становится другим.</p>
+				<p>А из их добычи куётся оружие, <b>которое помнит своего врага</b>.</p>
 			</article>
 		</div>
 	</section>
 
+	<!-- ═══ ГАЛЕРЕЯ: картинки — img/…; подпись — <figcaption> ═══ -->
 	<section class="gallery">
 		<figure><img src="img/square.jpg" alt="Площадь Золотого города" loading="lazy"><figcaption>Площадь Золотого города</figcaption></figure>
 		<figure><img src="img/port.jpg" alt="Порт" loading="lazy"><figcaption>Порт</figcaption></figure>
 		<figure><img src="img/hills.jpg" alt="Окраины города" loading="lazy"><figcaption>Окраины</figcaption></figure>
 	</section>
 
+	<!-- ═══ СКАЧАТЬ: три шага с лаунчером Verbum, ниже — другие лаунчеры и адрес сервера ═══ -->
 	<section id="download" class="block">
-		<h2>Как начать играть</h2>
+		<h2 class="ornament">Как начать играть</h2>
 		<ol class="steps">
-			<li>
+			<li class="glow-gold">
 				<h3>Скачай лаунчер</h3>
-				<p><a class="button" href="https://github.com/Ubivator20000/verbum-site/releases/latest/download/VerbumSetup.exe">VerbumSetup.exe</a></p>
+				<p><a class="button" href="https://github.com/Ubivator20000/verbum-site/releases/latest/download/VerbumSetup.exe"><span class="icon-down" aria-hidden="true"></span>Скачать</a></p>
 				<p class="note">Windows 10 или 11, 64 бита. Около 20 МБ; игра докачается сама (около 700 МБ).</p>
 			</li>
-			<li>
+			<li class="glow-purple">
 				<h3>Установи</h3>
 				<p>Запусти установщик и нажимай «Далее». Права администратора не нужны.</p>
 				<p class="note">Если Windows покажет синее окно «Система Windows защитила ваш компьютер» — нажми «Подробнее» → «Выполнить в любом случае». Так Windows встречает любую новую программу без платной подписи.</p>
 			</li>
-			<li>
+			<li class="glow-green">
 				<h3>Впиши ник и жми «Играть»</h3>
-				<p>Лаунчер сам скачает игру, моды и Java и зайдёт на сервер. Обновления — тоже сам.</p>
+				<p>Лаунчер сам скачает игру, моды и Java и зайдёт на сервер. <b>Обновления — тоже сам.</b></p>
 			</li>
 		</ol>
-		<details class="alt">
-			<summary>Играешь через Prism Launcher или Modrinth App?</summary>
-			<p>Скачай файл сборки <a href="https://github.com/Ubivator20000/verbum-site/releases/latest/download/Verbum-1.20.1.mrpack">Verbum-1.20.1.mrpack</a> и добавь его в лаунчере как новую сборку из файла. Мод и всё нужное скачаются при первом запуске игры.</p>
-			<p>Адрес сервера для списка серверов в игре: <b>play.verbummc.ru</b></p>
-		</details>
+
+		<div class="other">
+			<article class="glow-amber">
+				<h3>Prism Launcher или Modrinth App</h3>
+				<p>Скачай файл сборки и добавь его в лаунчере как новую сборку из файла. Мод и всё нужное скачаются при первом запуске игры.</p>
+				<p><a class="button small" href="https://github.com/Ubivator20000/verbum-site/releases/latest/download/Verbum-1.20.1.mrpack"><span class="icon-down" aria-hidden="true"></span>Verbum-1.20.1.mrpack</a></p>
+			</article>
+			<article class="glow-fire">
+				<h3>Официальный лаунчер, TLauncher, Legacy</h3>
+				<p>Скачай архив и распакуй его целиком в папку игры (обычно <b>%APPDATA%\.minecraft</b>), с заменой файлов. Перезапусти лаунчер и выбери версию <b>Verbum-1.20.1</b> — в официальном её нужно добавить: «Установки» → «Новая установка».</p>
+				<p><a class="button small" href="https://github.com/Ubivator20000/verbum-site/releases/latest/download/Verbum-1.20.1.zip"><span class="icon-down" aria-hidden="true"></span>Verbum-1.20.1.zip</a></p>
+				<p class="note">Подробная памятка — в самом архиве. Игре нужно не меньше 4 ГБ памяти.</p>
+			</article>
+			<article class="glow-purple address">
+				<h3>Адрес сервера</h3>
+				<p>Для списка серверов в игре:</p>
+				<!-- АДРЕС СЕРВЕРА: поменяешь сервер — поменяй здесь в двух местах (текст и data-copy) -->
+				<button class="copy" type="button" data-copy="play.verbummc.ru"><span>play.verbummc.ru</span><small>нажми, чтобы скопировать</small></button>
+			</article>
+		</div>
 	</section>
 
+	<!-- ═══ НОВОСТИ: текст — в news.txt (формат как в лаунчере), страницу не правь ═══ -->
 	<section id="news" class="block">
-		<h2>Новости</h2>
+		<h2 class="ornament">Новости</h2>
 		<div id="news-list" class="news"><p class="muted">Загружаю…</p></div>
 	</section>
 
+	<!-- ═══ ПРАВИЛА: каждый пункт — <li>…</li> ═══ -->
 	<section id="rules" class="block">
-		<h2>Правила</h2>
-		<!-- Черновик: поправь под себя. Каждый пункт — <li>…</li>. -->
-		<ol class="rules">
+		<h2 class="ornament">Правила</h2>
+		<ol class="rules glow-gold">
 			<li>Читы, X-ray, автокликеры и прочие нечестные моды запрещены.</li>
 			<li>Нашёл баг или дыру — сообщи администрации, а не пользуйся им.</li>
 			<li>Без оскорблений, травли, политики и рекламы других серверов.</li>
@@ -113,20 +162,43 @@
 		</ol>
 	</section>
 
-	<section id="donate" class="block donate">
-		<h2>Донат</h2>
-		<p>Донат — это только внешний вид: облики, титулы, украшения. Силы, ресурсов и преимуществ в игре он не даёт.</p>
-		<!-- Когда будет магазин EasyDonate — вставь его адрес вместо # и убери class="disabled". -->
-		<p><a class="button disabled" href="#" aria-disabled="true">Донат — скоро</a></p>
+	<!-- ═══ ДОНАТ: адрес магазина — в href у кнопки ═══ -->
+	<section id="donate" class="block">
+		<h2 class="ornament">Донат</h2>
+		<div class="donate glow-gold">
+			<p>Донат — это внешний вид и удобства: ранги, облики, титулы, украшения. <b>Силы и преимуществ в бою он не даёт.</b></p>
+			<p><a class="button" href="https://verbum.easydonate.ru" target="_blank" rel="noopener">Открыть магазин</a></p>
+		</div>
 	</section>
 
 </main>
 
 <footer>
+	<img src="img/icon-64.png" alt="" width="40" height="40">
 	<p>Verbum — неофициальный проект, не связан с Mojang Studios и Microsoft. Minecraft — товарный знак Mojang Studios.</p>
 </footer>
 
 <script src="news-data.js"></script>
 <script src="news.js"></script>
+<script>
+	// Шапка: над обложкой прозрачная, ниже — с тёмной полосой.
+	var header = document.querySelector('.top');
+	var mark = function () { header.classList.toggle('scrolled', window.scrollY > 60); };
+	window.addEventListener('scroll', mark, { passive: true });
+	mark();
+	// Кнопка адреса сервера: копирует его в буфер обмена.
+	document.querySelectorAll('.copy').forEach(function (button) {
+		button.addEventListener('click', function () {
+			var hint = button.querySelector('small');
+			var done = function () {
+				hint.textContent = 'скопировано!';
+				setTimeout(function () { hint.textContent = 'нажми, чтобы скопировать'; }, 1600);
+			};
+			if (navigator.clipboard) {
+				navigator.clipboard.writeText(button.dataset.copy).then(done, function () {});
+			}
+		});
+	});
+</script>
 </body>
 </html>
